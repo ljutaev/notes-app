@@ -1,5 +1,7 @@
 <template>
-    <h1>Message component - {{ message }}</h1>
+    <div class="message">
+        <p>{{ message }}</p>
+    </div>    
 </template>
 
 <script>
@@ -12,3 +14,10 @@ export default {
     }
 }
 </script>
+
+<style lang="sass" scoped>
+    .message
+        text-align: center
+        color: #ba3838
+        padding: 25px
+</style>
