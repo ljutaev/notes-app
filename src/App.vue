@@ -4,28 +4,18 @@
       <section>
         <div class="container">
           <h1>{{ title }}</h1>
-
           <message 
             v-if="message" 
             :message="message" 
           />
-
           <newNote 
             :note="note"
             @addNote="addNote"
           />
-
-          <div class="notes">
-            <div class="note" v-for="(note, index) in notes" :key="index">
-              <div class="note-header">
-                <p>{{ note.title }}</p>
-              </div>
-              <div class="note-body">
-                <p>{{ note.description }}</p>
-                <span>{{ note.date }}</span>
-              </div>
-            </div>
-          </div>
+          <notes 
+            :notes="notes"
+            @remove="removeNote"
+          />
         </div>
       </section>
     </div>
@@ -34,11 +24,13 @@
 
 <script>
 import message from '@/components/Message'
+import notes from '@/components/Notes'
 import newNote from '@/components/NewNote'
 export default {
   components: {
     message,
-    newNote
+    newNote,
+    notes
   },
   data () {
     return {
@@ -86,6 +78,9 @@ export default {
       this.note.description = ''
       this.message = null
       console.log(this.note)
+    },
+    removeNote(index) {
+      this.notes.splice(index, 1)
     }
   }  
 }
