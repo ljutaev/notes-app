@@ -27,4 +27,6 @@ export default {
 <style lang="sass" scoped>
     .new-note
         text-align: center
+        textarea
+            margin-bottom: 18px
 </style>
